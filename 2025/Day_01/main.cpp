@@ -7,7 +7,8 @@ using namespace std;
 
 int main()
 {
-    int count = 0;      // Rolling count times it passes zero
+    int count_1 = 0;
+    int count_2 = 0;      // Rolling count times it passes zero
     int pos = 50;       // Position of the current turn
     int last_pos;       // The position of the last turn
     
@@ -39,7 +40,7 @@ int main()
                 if ((last_pos == 0) && once == false) {
                     once = true;
                 } else {
-                    ++count;
+                    ++count_2;
                 }
             }
 
@@ -49,17 +50,19 @@ int main()
                 if (( pos % 100 == 0) && once == false) {
                     once = true;
                 } else {
-                    ++count;
+                    ++count_2;
                 }
             }
 
             if (pos == 0) {
-                ++count;
+                ++count_1;
+                ++count_2;
             }
         }
 
         last_pos = pos;
-        printf("Final Answer: %d\n", count);
+        printf("Part One Answer: %d\n", count_1);
+        printf("Part Two Answer: %d\n", count_2);
     }
 
     return 0;
