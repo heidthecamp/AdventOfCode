@@ -133,7 +133,6 @@ void part2 (string filename)
 int main()
 {
     string filename = "Day_02/input.txt";
-    // string filename = "Day_02/input_example.txt";
     printf("Part 1: \n");
     part1(filename);
     printf("Part 2: \n");
