@@ -1,12 +1,11 @@
-#include <fstream>      /* ifstream */
-#include <string>       /* string */
+#include <fstream>      /* std::ifstream */
+#include <string>       /* std::string */
 #include <cstdio>       /* printf */
 #include <cstdint>      /* uint64_t */
 #include <vector>       /* vector */
 
-using namespace std;
 
-int numNeighbors(vector<string> lines, int y, int x) {
+int numNeighbors(std::vector<std::string> lines, int y, int x) {
     int count = 0;
     
     if (y - 1 >= 0) {
@@ -40,14 +39,14 @@ int numNeighbors(vector<string> lines, int y, int x) {
     return count;
 }
 
-void part1 (string filename)
+void part1 (std::string filename)
 {
     printf("Part 1:\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<string> lines;
+    std::vector<std::string> lines;
 
     while (getline(myfile, line)) {
         lines.push_back(line);
@@ -79,14 +78,14 @@ void part1 (string filename)
 }
 
 
-void part2 (string filename)
+void part2 (std::string filename)
 {
     printf("Part 2:\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<string> lines;
+    std::vector<std::string> lines;
 
     while (getline(myfile, line)) {
         lines.push_back(line);
@@ -95,7 +94,7 @@ void part2 (string filename)
     int count = 0;
     int prevCount = count;
 
-    string frame;
+    std::string frame;
     do {
         frame = "";
         prevCount = count;
@@ -133,8 +132,8 @@ void part2 (string filename)
 
 int main()
 {
-    string filename = "Day_04/input.txt";
-    // string filename = "Day_04/input_example.txt";
+    std::string filename = "input.txt";
+    // std::string filename = "Day_04/input_example.txt";
 
     part1(filename);
     part2(filename);

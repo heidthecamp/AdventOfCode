@@ -1,42 +1,41 @@
-#include <fstream>  /* ifstream */
-#include <string>   /* string */
+#include <fstream>  /* std::ifstream */
+#include <string>   /* std::string */
 #include <cstdio>   /* printf */
 #include <cstdint>  /* uint64_t */
 #include <vector>   /* vector */
 #include <algorithm>
 
-using namespace std;
 
-void part1 (string filename)
+void part1 (std::string filename)
 {
     printf("Part 1\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<vector<string>> problems;
+    std::vector<std::vector<std::string>> problems;
 
     uint64_t total = 0;
 
     while (getline(myfile, line)) {
-        vector<string> current_line;
-        string rest = line;
+        std::vector<std::string> current_line;
+        std::string rest = line;
         rest = rest.substr(0,rest.find_last_not_of(" \t\n\r") + 1);
         size_t pos;
         while (true) {
             
             size_t start = rest.find_first_not_of(" \t\n\r");
-            if (start != string::npos) {
+            if (start != std::string::npos) {
                 rest = rest.substr(start);
             }
 
             pos = rest.find(" ");
-            if (pos == string::npos) {
+            if (pos == std::string::npos) {
                 current_line.push_back(rest);
                 break;
             }
 
-            string cur = rest.substr(0, pos);
+            std::string cur = rest.substr(0, pos);
             rest = rest.substr(pos + 1);
             
             if (cur != " ") {
@@ -66,14 +65,14 @@ void part1 (string filename)
     printf("\tEnd total: %lu\n", total);
 }
 
-void part2(string filename)
+void part2(std::string filename)
 {
     printf("Part 2:\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<string> raw;
+    std::vector<std::string> raw;
 
     uint64_t total = 0;
 
@@ -82,11 +81,11 @@ void part2(string filename)
     }
     
     // Separate opperations from digits
-    string opp_str = raw[raw.size()-1];
+    std::string opp_str = raw[raw.size()-1];
     raw.pop_back();
 
     // get all opperations in reverse order
-    vector<char> opps;
+    std::vector<char> opps;
     for (int i = opp_str.length() - 1; i >= 0; --i){
         if (opp_str[i] != ' ') {
             opps.push_back(opp_str[i]);
@@ -101,7 +100,7 @@ void part2(string filename)
     int opp_index = 0;
 
     for(int i = raw[0].length() - 1; i >= 0; --i) {
-        string tmp = "";
+        std::string tmp = "";
         for(auto it: raw) {
             if (it[i] != ' '){
                 tmp += it[i];
@@ -119,18 +118,17 @@ void part2(string filename)
             }
         }
         if (tmp == "" || i == 0) {
-            printf("%lu += %lu\n", running_total, calculation);
             running_total += calculation;
             calculation = 0;
             ++opp_index;
         }
     }
-    printf("Total: %lu", running_total);
+    printf("\tTotal: %lu\n", running_total);
 }
 
 int main()
 {
-    string filename = "Day_06/input.txt";
+    std::string filename = "input.txt";
 
     part1(filename);
     part2(filename);

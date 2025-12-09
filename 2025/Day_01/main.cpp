@@ -1,9 +1,8 @@
 #include <fstream>      /* file */
-#include <string>       /* string */
+#include <string>       /* std::string */
 #include <stdio.h>      /* printf, fgets */
 #include <stdlib.h>     /* atoi */
 
-using namespace std;
 
 int main()
 {
@@ -13,13 +12,13 @@ int main()
     int last_pos;       // The position of the last turn
     
     // File handeling
-    string line;
-    ifstream myfile ("Day_01/input.txt");
+    std::string line;
+    std::ifstream myfile ("input.txt");
 
     if(myfile.is_open()) {
         while( getline(myfile,line)) {
-            string direction = line.substr(0,1);
-            string digits_char = line.substr(1);
+            std::string direction = line.substr(0,1);
+            std::string digits_char = line.substr(1);
             int digits = atoi(digits_char.c_str());
             
             bool once = false;  // track if we have passed the zero once or more, used for when the position is zero

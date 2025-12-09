@@ -1,18 +1,17 @@
-#include <fstream>      /* ifstream */
-#include <string>       /* string */
+#include <fstream>      /* std::ifstream */
+#include <string>       /* std::string */
 #include <cstring>      /* strlen */
 #include <cstdio>       /* printf */
 #include <cstdlib>      /* atoi */
 #include <cstdint>      /* uint64_t */
 
-using namespace std;
 
-void part1 (string filename) 
+void part1 (std::string filename) 
 {
     printf("PART 1:\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
     uint64_t sum = 0;
 
@@ -31,18 +30,18 @@ void part1 (string filename)
             }
             
         }
-        string tmp {first, second};
+        std::string tmp {first, second};
         sum += atoi(tmp.c_str());
     }
     printf("\tTotal: %lu\n\n", sum);
 }
 
-void part2 (string filename)
+void part2 (std::string filename)
 {
     printf("PART 2:\n");
 
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
     uint64_t sum = 0;
 
@@ -66,14 +65,14 @@ void part2 (string filename)
                 }
             }
         }
-        string tmp {joltage};
+        std::string tmp {joltage};
         sum += atol(tmp.c_str());
     }
     printf("\tTotal: %lu\n", sum);
 }
 
 int main() {
-    string filename = "Day_03/input.txt";
+    std::string filename = "input.txt";
 
     part1(filename);
     part2(filename);

@@ -7,7 +7,6 @@
 #include <vector>
 #include <cstdlib> 
 
-using namespace std;
 
 struct Range {
     uint64_t low;
@@ -23,14 +22,14 @@ bool sortLows (Range x, Range y) {
 
 
 
-void part1 (string filename)
+void part1 (std::string filename)
 {
     printf("Part 1:\n");
     
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<Range> ranges;
+    std::vector<Range> ranges;
 
     int count = 0;
 
@@ -66,13 +65,13 @@ void part1 (string filename)
     printf("\tItems: %d\n",count);
 }
 
-void part2(string filename) {
+void part2(std::string filename) {
     printf("Part 2:\n");
     
-    ifstream myfile (filename);
-    string line;
+    std::ifstream myfile (filename);
+    std::string line;
 
-    vector<Range> ranges;
+    std::vector<Range> ranges;
 
     // Get the ranges
     while(getline(myfile, line) && line != ""){
@@ -107,8 +106,8 @@ void part2(string filename) {
 
 int main ()
 {
-    string filename = "Day_05/input.txt";
-    // string filename = "Day_05/input_example.txt";
+    std::string filename = "input.txt";
+    // std::string filename = "Day_05/input_example.txt";
 
     part1(filename);
     part2(filename);
