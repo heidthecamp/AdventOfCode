@@ -12,7 +12,7 @@ void part1(std::string filename)
 
     int count = 0;
 
-    while(getline(myfile, line)){
+    while (getline(myfile, line)) {
         for (int i = 0; prev_line.length() > 0 && i < line.length(); ++i) {
             if (prev_line[i] == '|' || prev_line[i] == 'S'){
                 if (line[i] != '^') {

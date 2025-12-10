@@ -46,7 +46,7 @@ void part1 (std::string filename)
                 rest = rest.substr(index + 1);
             }
 
-            for (auto &range : ranges) {
+            for (auto& range : ranges) {
                 // printf("Range: %lu - %lu\n", range.low, range.high);
                 for (uint64_t i = range.low; i <= range.high; i++) {
                     std::string str = std::to_string(i);
