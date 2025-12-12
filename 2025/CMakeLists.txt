@@ -12,6 +12,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+find_package(SDL2 REQUIRED)
+
 add_subdirectory(Day_01)
 add_subdirectory(Day_02)
 add_subdirectory(Day_03)
@@ -20,3 +22,4 @@ add_subdirectory(Day_05)
 add_subdirectory(Day_06)
 add_subdirectory(Day_07)
 add_subdirectory(Day_08)
+add_subdirectory(Day_09)
